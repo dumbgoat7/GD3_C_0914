@@ -33,29 +33,28 @@ class MainActivity : AppCompatActivity() {
 
             Snackbar.make(mainLayout, "Text Cleared Success", Snackbar.LENGTH_LONG).show()
 
-
-            btnLogin.setOnClickListener(View.OnClickListener {
-                var checkLogin = false
-                val username: String = inputUsername.getEditText()?.getText().toString()
-                val password: String = inputPassword.getEditText()?.getText().toString()
-
-                if (username.isEmpty()) {
-                    inputUsername.setError("Username must be filled with text")
-                    checkLogin = false
-                }
-
-                if (password.isEmpty()) {
-                    inputPassword.setError("Password must be filled with text")
-                    checkLogin = false
-                }
-
-                if (username == "admin" && password == "0914") checkLogin = true
-                if (!checkLogin) return@OnClickListener
-                val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
-                startActivity(moveHome)
-            })
-
-
         }
+
+        btnLogin.setOnClickListener(View.OnClickListener {
+            var checkLogin = false
+            val username: String = inputUsername.getEditText()?.getText().toString()
+            val password: String = inputPassword.getEditText()?.getText().toString()
+
+            if (username.isEmpty()) {
+                inputUsername.setError("Username must be filled with text")
+                checkLogin = false
+            }
+
+            if (password.isEmpty()) {
+                inputPassword.setError("Password must be filled with text")
+                checkLogin = false
+            }
+
+            if (username == "admin" && password == "0914") checkLogin = true
+            if (!checkLogin) return@OnClickListener
+            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(moveHome)
+        })
+
     }
 }
